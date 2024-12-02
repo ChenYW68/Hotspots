@@ -1,11 +1,12 @@
-spTIDW <- function(Predict.Coor,
-                   Grid.Coord,
-                   Grid.Data,
-                   range = 4,
-                   col_var = "",
-                   distance.scale = 1e3,
-                   from.var = "",
-                   to.var = ""){
+spTIDW <- function(Predict.Coor,  # Transformed the coordinates of the villages by spTransform() function of the R package sp, resulting in the distance in miles
+                   Grid.Coord,    # Transformed coordinates of grids that were defined by spatial grid-level data
+                   Grid.Data,     # Spatial grid-level outputs
+                   range = 50,    # Spatial range
+                   col_var = "",  # The variable names used to merge two datasets
+                   distance.scale = 1e3,  # to Kilometers
+                   from.var = "",   # Downscaled variable names
+                   to.var = ""      # New variable names
+                   ){
   setDF(Predict.Coor)
   setDF(Grid.Coord)
   n.row <- nrow(Predict.Coor)
