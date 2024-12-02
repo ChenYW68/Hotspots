@@ -306,7 +306,6 @@ for(Com.Pred in c(Combined.Predictors)){
   Cov.Index.Latitude <- which(base::colnames(all_Mod_SCORE_Data) %in% c("Latitude"))
   Cov.Index.unchange <- Cov.Index <- which(base::colnames(all_Mod_SCORE_Data) %in% c(Covariate))
 
-
   setDT(all_Mod_SCORE_Data)
 
   Temp.0 <- NULL
@@ -323,11 +322,10 @@ for(Com.Pred in c(Combined.Predictors)){
     }
 
     GBM.accuracy        <- RF.accuracy        <- Logit.accuracy     <-
-    LogitGPs.accuracy   <- LogitAD.accuracy   <- LogitR.accuracy    <-
-    LogitGRMFs.accuracy <- dynaTrees.accuracy <- reglogit.accuracy  <-
+    LogitGPs.accuracy   <- dynaTrees.accuracy <- reglogit.accuracy  <-
     tree.accuracy       <- lasso.accuracy     <- lgt.accuracy       <-
-    probit.accuracy     <- svm.accuracy       <- MLP.accuracy       <-
-    ENS.accuracy        <- CNN.accuracy       <- sparseSVM.accuracy <-vector()
+    probit.accuracy     <- svm.accuracy       <- ENS.accuracy       <-
+    CNN.accuracy        <- sparseSVM.accuracy <-vector()
 
     beta.Rank <- list()
 
