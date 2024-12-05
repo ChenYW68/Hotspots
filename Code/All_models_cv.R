@@ -317,17 +317,20 @@ for(Com.Pred in c(Combined.Predictors)){
     }else{
       Da <- all_Mod_SCORE_Data
     }
+    
+    # The prediction models investigated by previous works
+    GBM.accuracy        <- RF.accuracy        <- tree.accuracy       <-
+    Logit.accuracy      <- lasso.accuracy     <- lgt.accuracy        <-
+    svm.accuracy        <- ENS.accuracy        <-  vector()
 
-    GBM.accuracy        <- RF.accuracy        <- Logit.accuracy     <-
-    LogitGPs.accuracy   <- dynaTrees.accuracy <- reglogit.accuracy  <-
-    tree.accuracy       <- lasso.accuracy     <- lgt.accuracy       <-
-    probit.accuracy     <- svm.accuracy       <- ENS.accuracy       <-
-    CNN.accuracy        <- sparseSVM.accuracy <-vector()
+    # The serveral different prediction models included by this work
+    LogitGPs.accuracy   <- sparseSVM.accuracy <- dynaTrees.accuracy <- 
+    reglogit.accuracy  <- probit.accuracy     <- CNN.accuracy       <-  vector()
 
     beta.Rank <- list()
 
 
-    #---- Run models ----
+    #---- Run prediction models with different predictor configurations ----
     if(h2o.run|Variable.importance){
       h2o.init(max_mem_size = "10G")
     }
