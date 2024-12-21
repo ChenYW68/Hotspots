@@ -356,13 +356,11 @@ for(Com.Pred in c(Combined.Predictors)){
 
 
         Da.mod  <- Da[ind.train, ]
-        Da.pre  <- Da[ind.valid, ]
         Da.test <- Da[ind[which(ind %in% ind)], ]
 
         Reg     <- Region[k]
       }else if (k == 4){
         temp    <- Da %>% filter(region %in% Region[1])
-        Da.pre  <- Da.mod <- temp[sample(1:nrow(temp), ceiling(nrow(temp)*train.size), replace = F), ]
         temp    <- Da %>% filter(region %nin% Region[1])
         Da.test <- temp[sample(1:nrow(temp), ceiling(nrow(temp)*(1 - train.size)), replace = F), ]
 
@@ -372,7 +370,6 @@ for(Com.Pred in c(Combined.Predictors)){
         formula.LogitGPs  <- paste0("Persistent_Hotspot ~ 1", paste(" + ",  Covariate[which(Covariate %nin% "Latitude")], collapse = " "))
       }else if (k == 5){
         temp    <- Da %>% filter(region %in% Region[2])
-        Da.pre  <- Da.mod <- temp[sample(1:nrow(temp), ceiling(nrow(temp)*train.size), replace = F), ]
         temp    <- Da %>% filter(region %nin% Region[2])
         Da.test <- temp[sample(1:nrow(temp),
                                ceiling(nrow(temp)*(1 - train.size)),
@@ -415,8 +412,8 @@ for(Com.Pred in c(Combined.Predictors)){
         }
         Da.mod.1 <- ROSE::ROSE(Persistent_Hotspot ~ .,
                                N          = 300,
-                               # hmult.majo = hmult.majo,
-                               # hmult.mino = hmult.mino,
+                               hmult.majo = hmult.majo,
+                               hmult.mino = hmult.mino,
                                data = Da.mod[, c(ind.y, Cov.Index)],
                                p    =  p,
                                seed = r)$data
@@ -431,10 +428,9 @@ for(Com.Pred in c(Combined.Predictors)){
           Da.mod <- Da.mod.1
         }
 
-        validate.Data <-  train.Data <- Da.pre <- Da.mod
+       train.Data <-  Da.mod
       }else{
         train.Data    <- Da.mod[, c(ind.y, Cov.Index)]
-        validate.Data <- Da.pre[, c(ind.y, Cov.Index)]
       }
         test.Data     <- Da.test[, c(ind.y, Cov.Index)]
 
@@ -443,11 +439,9 @@ for(Com.Pred in c(Combined.Predictors)){
       y.test <- test.Data$Persistent_Hotspot
       train.Data$Persistent_Hotspot <- as.factor(train.Data$Persistent_Hotspot)
 
-      validate.Data$Persistent_Hotspot <- as.factor(validate.Data$Persistent_Hotspot)
       test.Data$Persistent_Hotspot     <- as.factor(test.Data$Persistent_Hotspot)
       if(h2o.run){
         train.h2o    <- as.h2o(train.Data)
-        validate.h2o <- as.h2o(validate.Data)
         test.h2o     <- as.h2o(test.Data)
 
         nfolds <- 5
