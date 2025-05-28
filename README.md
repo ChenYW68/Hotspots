@@ -8,7 +8,7 @@ Schistosomiasis infection is a major public health problem. The related study sh
 Compared to the approach using only baseline infection data, the spatially weighted data fusion method achieved relative improvements (RIs) in hotspot prediction accuracy by fusing baseline infection data with each predictor category: 10% with biology, 8.6% with geography, 6.6% with society, 3.5% with baseline infection data around villages, 3.3% with environment, 1.8% with agriculture, and 7.2% with all predictors. Furthermore, across the same predictor combinations, applying the sampling-based technique with the proposed method yielded RIs of 6.5%-37.9%, compared to the approach that did not address the imbalance.
 <figure id="Figure4">
   <p align="center">
-  <img src="./figure/FigS5.jpg" width="70%" height="50%">
+  <img src="./figure/FigS5.jpg" width="40%" height="40%">
     </p>
   <figcaption>
   <strong>Figure 1:</strong> Relative improvements (RIs) in prediction accuracy on test sets for the three scenarios from the proposed spatially weighted data fusion method using different predictor categories, compared to the approach using only baseline infection data..
@@ -17,7 +17,7 @@ Compared to the approach using only baseline infection data, the spatially weigh
 
 <figure id="Figure4">
   <p align="center">
-  <img src="./figure/Fig3.jpg" width="70%" height="50%">
+  <img src="./figure/Fig3.jpg" width="100%" height="50%">
     </p>
   <figcaption>
   <strong>Figure 2:</strong>  Relative improvements (RIs), in prediction accuracy on unprocessed test sets, obtained from the models trained using pre-processed synthetic data based on the proposed different predictor configurations, compared to models using unprocessed original imbalanced training data, where the best model with the highest prediction accuracy was considered for each method (i.e., y-axis).
