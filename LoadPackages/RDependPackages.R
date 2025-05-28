@@ -14,7 +14,7 @@ packages <- c("data.table",
               "dynaTree",
               "klaR",
               "sparseSVM",
-              # "RSNNS",
+              "performanceEstimation",
               "DataExplorer"
               )
 # ,'MASS'

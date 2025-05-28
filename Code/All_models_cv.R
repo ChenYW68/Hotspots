@@ -1,5 +1,5 @@
 rm(list = ls())
-# source("./LoadPackages/RDependPackages.R")
+source("./LoadPackages/RDependPackages.R")
 h2o.no_progress()
 #------------------------------load datasets------------------------------------
 load('./data/Mod_SCORE_Kenya_Tanzania.RData')
@@ -43,7 +43,7 @@ nCV           <- 200;
 
 #Whether to adjust the imbalanced training data
 imbalance   <- F
-
+Rose        <- F 
 #Select models used to run in CV
 h2o.run          <- T  #Including GBM, RF, Tree, Logit, Logit.Lasso, LGT, SVM, Ensemble, and DNN
 LogitGPs.run     <- T
@@ -410,6 +410,7 @@ for(Com.Pred in c(Combined.Predictors)){
           hmult.majo <- 1e2
           hmult.mino <- 1e1
         }
+		 if(Rose){
         Da.mod.1 <- ROSE::ROSE(Persistent_Hotspot ~ .,
                                N          = 300,
                                hmult.majo = hmult.majo,
@@ -417,7 +418,15 @@ for(Com.Pred in c(Combined.Predictors)){
                                data = Da.mod[, c(ind.y, Cov.Index)],
                                p    =  p,
                                seed = r)$data
-
+        }else{
+          smote.Da.mod <- Da.mod
+          smote.Da.mod$Persistent_Hotspot <- ordered(as.factor(smote.Da.mod$Persistent_Hotspot), levels = c(0, 1))
+          Da.mod.1  <- smote(Persistent_Hotspot ~ .,
+                             data = smote.Da.mod[, c(ind.y, Cov.Index)],
+                             perc.over = 2,  #4
+                             k         = 5,
+                             perc.under = 10)
+		}
         seq <- table(Da.mod.1$Persistent_Hotspot)
         print(seq)
 
@@ -550,11 +559,11 @@ for(Com.Pred in c(Combined.Predictors)){
         varimp_heatmap <- h2o.varimp_heatmap(aml, num_of_features = 50)
         rownames(varimp_heatmap[["data"]]) <- NULL
         varimp <- as.data.frame(varimp_heatmap[["data"]]) %>%
-          aggregate(value ~ feature, mean)
-
+            group_by(feature) %>%
+            dplyr::summarise(Mu = mean(value, na.rm = TRUE),
+                             SD = sd(value, na.rm = TRUE)) %>%
+            ungroup()
         setDT(varimp)
-        colnames(varimp) <- c("feature", "value")
-
      if(r == 1){
         beta.Rank[["gbm"]] <- varimp
         beta.Rank[["gbm"]]$iter <- r
