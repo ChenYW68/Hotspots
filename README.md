@@ -11,7 +11,7 @@ Compared to the approach using only baseline infection data, the spatially weigh
   <img src="./figure/FigS5.jpg" width="60%" height="60%">
     </p>
   <figcaption>
-  <strong>Figure 1:</strong> Relative improvements (RIs) in prediction accuracy on test sets for the three scenarios from the proposed spatially weighted data fusion method using different predictor categories, compared to the approach using baseline infection data only.
+  <strong>Figure 1:</strong> Relative improvements in prediction accuracy on test sets for the three scenarios from the proposed spatially weighted data fusion method using different predictor categories, compared to the approach using baseline infection data only.
   </figcaption>
 </figure>
 
@@ -20,6 +20,6 @@ Compared to the approach using only baseline infection data, the spatially weigh
   <img src="./figure/Fig3.jpg" width="100%" height="50%">
     </p>
   <figcaption>
-  <strong>Figure 2:</strong>  Relative improvements (RIs), in prediction accuracy on unprocessed test sets, obtained from the models trained using pre-processed synthetic data based on the proposed different predictor configurations, compared to models using unprocessed original imbalanced training data, where the best model with the highest prediction accuracy was considered for each method (i.e., y-axis).
+  <strong>Figure 2:</strong>  Relative improvements, for prediction accuracy on unprocessed test sets, obtained from the models trained using pre-processed synthetic data based on the proposed different predictor configurations, compared to models using unprocessed original imbalanced training data, where the best model with the highest prediction accuracy was considered for each method (i.e., y-axis).
   </figcaption>
 </figure>
