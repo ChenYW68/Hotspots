@@ -20,6 +20,6 @@ Compared to the approach using only baseline infection data, the spatially weigh
   <img src="./figure/Fig3.jpg" width="100%" height="50%">
     </p>
   <figcaption>
-  <strong>Figure 2:</strong>  Relative improvements, for prediction accuracy on unprocessed test sets, obtained from the models trained using pre-processed synthetic data based on the proposed different predictor configurations, compared to models using unprocessed original imbalanced training data, where the best model with the highest prediction accuracy was considered for each method (i.e., y-axis).
+  <strong>Figure 2:</strong>  Relative improvements, in prediction accuracy on unprocessed test sets, obtained from the models trained using pre-processed synthetic data based on the proposed different predictor configurations, compared to models using unprocessed original imbalanced training data, where the best model with the highest prediction accuracy was considered for each method (i.e., y-axis).
   </figcaption>
 </figure>
