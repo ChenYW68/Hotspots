@@ -11,7 +11,7 @@ Compared to the approach using only baseline infection data, the spatially weigh
   <img src="./figure/FigS5.jpg" width="60%" height="60%">
     </p>
   <figcaption>
-  <strong>Figure 1:</strong> Relative improvements (RIs) in prediction accuracy on test sets for the three scenarios from the proposed spatially weighted data fusion method using different predictor categories, compared to the approach using only baseline infection data..
+  <strong>Figure 1:</strong> Relative improvements (RIs) in prediction accuracy on test sets for the three scenarios from the proposed spatially weighted data fusion method using different predictor categories, compared to the approach using baseline infection data only.
   </figcaption>
 </figure>
 
