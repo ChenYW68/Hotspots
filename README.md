@@ -1,6 +1,6 @@
 # Identifying Key Aspects to Enhance Predictive Modeling for Early Identification of Schistosomiasis Hotspots to Guide Mass Drug Administration
  
-This Github page provides code for reproducing the results in the manuscript: Chen Y, Luo F, Martinez L, Jiang S, Shen Y (2025). [Identifying key aspects to enhance predictive modeling for early identification of schistosomiasis hotspots to guide mass drug administration](https://www.researchgate.net/publication/393766835_Identifying_key_aspects_to_enhance_predictive_modeling_for_early_identification_of_schistosomiasis_hotspots_to_guide_mass_drug_administration). PLoS Negl Trop Dis 19(7): e0013315. https://doi.org/10.1371/journal.pntd.0013315
+This Github page provides code for reproducing the results in the manuscript: Chen Y, Luo F, Martinez L, Jiang S, Shen Y (2025). [Identifying key aspects to enhance predictive modeling for early identification of schistosomiasis hotspots to guide mass drug administration](https://www.researchgate.net/publication/393766835_Identifying_key_aspects_to_enhance_predictive_modeling_for_early_identification_of_schistosomiasis_hotspots_to_guide_mass_drug_administration). PLoS Negl Trop Dis 19(7): e0013315.
 
  
 ## Summary
